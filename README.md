@@ -26,10 +26,12 @@ These are only required if you want to use GPU acceleration
 Firstly ensure that you have a supported NVIDIA graphics card with the
 appropriate drivers and CUDA libraries installed.
 
-You will need to know which NVIDIA GPU architecture you are using (I've tested
-with Maxwell only).
+You will need to know which NVIDIA GPU architecture you are using (look up your
+graphics card if you're unsure). In theory `Tesla`, `Fermi`, `Kepler` and
+`Maxwell` should work, but I've only tested Maxwell.
 
-Build the image using the following command, setting `nv_arch` appropriately:
+Build the image using the following command, setting `nv_arch` appropriately for
+your graphics card architecture:
 
 ```sh
 docker build --build-arg=nv_arch=Maxwell -t irkernel cuda-7.5
