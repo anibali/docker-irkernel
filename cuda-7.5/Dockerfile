@@ -107,7 +107,7 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 RUN jupyter notebook --generate-config \
  && echo "\nimport os\nfrom IPython.lib import passwd\npassword = os.environ.get('JUPYTER_PASSWORD')\nif password:\n  c.NotebookApp.password = passwd(password)\n" \
     >> ~/.jupyter/jupyter_notebook_config.py \
- && echo '\nos.environ["R_PLASMA_NUM_THREADS"] = os.popen("nproc").read().strip()\n' \
+ && echo '\nos.environ["R_PLASMA_NUM_THREADS"] = "1"\n' \
     >> ~/.jupyter/jupyter_notebook_config.py
 COPY notebook.json /root/.jupyter/nbconfig/
 
